@@ -295,3 +295,10 @@ code {
     border-right-color: var(--border);
   }
 }
+
+.clients__list{
+  @apply w-50 h-25 bg-purple-800 text-white rounded-2xl
+}
+.clients__list__name{
+  @apply px-5 py-3
+}

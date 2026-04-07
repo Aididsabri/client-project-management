@@ -8,22 +8,35 @@
     <title>Client Project Management</title>
   </head>
   <body>
-    <section class="container p-5">
-      <h1>Client Project Management</h1>
+    <section class="clients container p-5">
+      <h1 class="">Client Project Management</h1>
       <div class="flex items-center space-x-2">
         <input
           type="text"
           placeholder="Add New Clients"
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
+          class="clients__input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
         />
         <button
-          type="submit"
-          class="px-6 py-2 bg-purple-500 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors"
+          type="button"
+          onclick="addClient()"
+          class="clients__add cursor-pointer px-6 py-2 bg-purple-500 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors"
         >
-          Submit
+          Add
         </button>
+      </div>
+
+      <div class="clients__list__container flex gap-3 my-5">
+        
+        <!-- Client List HTML -->
+        <!-- 
+        <div class="clients__list">
+          <div class="clients__list__name">
+            Maxis
+          </div>
+        </div> -->
       </div>
     </section>
   </body>
 </html>
-<script type="module" src="/src/main.js"></script>
+
+<script src="src/main.js"></script>

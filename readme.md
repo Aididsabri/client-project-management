@@ -1,1 +1,1 @@
-This is a project for me to become a senior Front End Developer
+This is a project for me to improve myself as a Front End Developer and become senior
