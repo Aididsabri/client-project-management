@@ -1,0 +1,1 @@
+This is a project for me to become a senior Front End Developer
