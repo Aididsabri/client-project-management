@@ -1,26 +1,59 @@
 let clients = [];
 
 let clientInput = document.querySelector(".clients__input")
+let clientList = document.querySelector(".clients__list")
+let clientAdd = document.querySelector(".clients__add")
 
+
+//Press Enter to key in input fields
+clientInput.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        e.preventDefault()
+        clientAdd.click()
+    }
+})
+
+// add clients into client[] Array
 function addClient(){
-    let name = clientInput.value
+    const name = clientInput.value.trim();
     
     if (!name){
         alert("Client name cannot be empty")
         return
     }
 
-    let listContainer = document.querySelector(".clients__list__container")
-    
-    let newListBox = document.createElement("div")
-    newListBox.classList.add("clients__list")
-    
-    let newListName = document.createElement("div")
-    newListName.classList.add("clients__list__name")
+    //check duplicated client name
+    const isDuplicate = clients.some(client =>
+        client.name.toLowerCase() === name.toLowerCase()
+    )
 
-    newListBox.appendChild(newListName)
-    listContainer.appendChild(newListBox)
+    if (isDuplicate){
+        alert("Client already Exist!")
+        return;
+    }
+
+    const newClient = {
+        id: Date.now(),
+        name: name,
+        tasks: []
+    };
     
-    newListName.innerHTML = name
-    // console.log("BOLEH")
+    clients.push(newClient);
+
+    clientInput.value = "" 
+
+    renderClient()
+}
+
+//Render clients[] array into HTML
+function renderClient(){
+    clientList.innerHTML = ""
+
+    clients.forEach(client =>{
+        const list = document.createElement("li");
+        list.textContent = client.name;
+        list.className = "w-full my-3 px-2 text-black py-4 bg-purple-200 rounded"
+        clientList.appendChild(list)
+    })
+    
 }
