@@ -1,4 +1,9 @@
+import {modal} from './modal.js';
+
+modal();
+
 let clients = [];
+let selectedClientId = null;
 
 let clientInput = document.querySelector(".clients__input")
 let clientList = document.querySelector(".clients__list")
@@ -13,9 +18,8 @@ clientInput.addEventListener("keydown", function(e) {
     }
 })
 
-// add clients into client[] Array
-function addClient(){
-    const name = clientInput.value.trim();
+clientAdd.addEventListener("click",() =>{
+const name = clientInput.value.trim();
     
     if (!name){
         alert("Client name cannot be empty")
@@ -28,6 +32,7 @@ function addClient(){
     )
 
     if (isDuplicate){
+        console.log("duplicated client blocked")
         alert("Client already Exist!")
         return;
     }
@@ -43,6 +48,11 @@ function addClient(){
     clientInput.value = "" 
 
     renderClient()
+})
+
+// add clients into client[] Array
+function addClient(){
+    
 }
 
 //Render clients[] array into HTML
