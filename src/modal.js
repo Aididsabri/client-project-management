@@ -1,5 +1,4 @@
 export function modal() {
-  console.log("Modal Testing console");
 
   // Get the modal
   var modal = document.getElementById("modalContent");
@@ -20,9 +19,6 @@ export function modal() {
   span.onclick = function () {
     modal.style.display = "none";
   };
-//   addClientBtn.onclick = function(){
-//     modal.style.display = "none";
-//   }
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
