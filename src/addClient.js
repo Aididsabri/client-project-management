@@ -1,9 +1,9 @@
 import {clients} from "./state.js";
+import {modalContent} from "./state.js";
+import {renderClient} from "./state.js";
 
 export function addClient() {
-  var modal = document.getElementById("modalContent");  
   let clientInput = document.querySelector(".clients__input");
-  let clientList = document.querySelector(".clients__list");
   let clientAdd = document.querySelector(".clients__add");
 
   //Press Enter to key in input fields
@@ -42,19 +42,7 @@ export function addClient() {
     clients.push(newClient);
 
     clientInput.value = "";
-    modal.style.display = "none";
-    renderClient();
+    modalContent.style.display = "none";
+    renderClient(); //call function from state.js
   });
-
-  //Render clients[] array into HTML
-  function renderClient() {
-    clientList.innerHTML = "";
-
-    clients.forEach((client) => {
-      const list = document.createElement("li");
-      list.textContent = client.name;
-      list.className = "w-full my-3 px-2 text-black py-4 bg-purple-200 rounded";
-      clientList.appendChild(list);
-    });
-  }
 }
